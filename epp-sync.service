@@ -1,0 +1,12 @@
+[Unit]
+Description=EPP-Sync: A dynamic power management utility for Linux systems, bridging ACPI power profiles with Energy Performance Preferences (EPP) for optimal power usage and system performance.
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /var/usrlocal/bin/epp-sync.py -d
+Restart=on-failure
+User=root
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
